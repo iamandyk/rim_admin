@@ -4,7 +4,8 @@
  * @var \App\Model\Entity\User $user
  */
 ?>
-<div class="row">
+<div class="grid-x grid-padding-x">
+    <div class="cell">
     <aside class="column">
         <div class="side-nav">
             <h4 class="heading"><?= __('Actions') ?></h4>
@@ -29,5 +30,6 @@
             <?= $this->Form->button(__('Submit')) ?>
             <?= $this->Form->end() ?>
         </div>
+    </div>
     </div>
 </div>

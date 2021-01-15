@@ -4,11 +4,14 @@
  * @var \App\Model\Entity\User $user
  */
 ?>
-<div class="row">
+<div class="grid-x grid-padding-x">
+    <div class="cell">
     <aside class="column">
         <div class="side-nav">
             <h4 class="heading"><?= __('Actions') ?></h4>
+            <ul class="menu">
             <?= $this->Html->link(__('List Users'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+            </ul>
         </div>
     </aside>
     <div class="column-responsive column-80">
@@ -25,4 +28,5 @@
             <?= $this->Form->end() ?>
         </div>
     </div>
+</div>
 </div>
