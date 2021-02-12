@@ -44,7 +44,7 @@ endif;
 
 
     <?= $this->Html->css(['foundation.css', 'app.css']) ?>
-    <?= $this->Html->script(['foundation.js', 'app.js']) ?>
+    <?= $this->Html->script(['vendor.js', 'foundation.js', 'app.js']) ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
@@ -72,20 +72,22 @@ endif;
 <div class="grid-x grid-padding-x">
   <div class="cell medium-6 large-4">
   <label>College
-  <select>
-  <?php foreach($colleges as $college) {
-      echo '<option value=' . $college->College . '>' . $college->CollegeName . '</option>';
-  };
-  ?>
-  </select>
-</label>
 
-<label>Available Years
-  <select>
-    <option value="2021">FY 2021</option>
-    <option value="2020">FY 2020</option>
-  </select>
-</label>
+  <?php
+    $collegeOptions = [];
+
+    foreach($colleges as $college) {
+        $collegeOptions[$college->College] = $college->CollegeName;
+    }
+
+    echo $this->Form->create(null, ["type" => "get", "class" => "admin-form"]);
+
+    echo $this->Form->select('college', $collegeOptions, ["class" => "college-select"]);
+
+    echo $this->Form->select('years', ["2021" => "FY 2021", "2020" => "FY 2020", "2019" => "FY 2019"]);
+
+    echo $this->Form->end();
+  ?>
 
 </div>
   <div class="cell medium-6 large-8">

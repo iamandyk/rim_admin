@@ -20,11 +20,12 @@ class HomeController extends AppController
         $this->loadModel('Faculty');
         $this->loadModel('Colleges');
 
+        $selected = $this->request->getQuery("college");
+
+
         $colleges = $this->Colleges->find('all')->toArray();
 
-        $selectedCollege = $this->Colleges->get('AA', ["contain" => ["Unit", "Unit.Faculty"] ]);
-
-        debug($selectedCollege);
+        $selectedCollege = $this->Colleges->get($selected, ["contain" => ["Unit", "Unit.Faculty"] ]);
 
         $this->set(compact('colleges', 'selectedCollege'));
     }
