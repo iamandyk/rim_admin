@@ -84,7 +84,7 @@ endif;
 
     echo $this->Form->select('college', $collegeOptions, ["class" => "college-select"]);
 
-    echo $this->Form->select('years', ["2021" => "FY 2021", "2020" => "FY 2020", "2019" => "FY 2019"]);
+    echo $this->Form->select('years', ["2021" => "FY 2021", "2020" => "FY 2020", "2019" => "FY 2019"], ['class' => "year-select"]);
 
     echo $this->Form->end();
   ?>
