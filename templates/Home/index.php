@@ -94,7 +94,9 @@ endif;
     <?php 
     foreach($selectedCollege->unit as $unit) {
         foreach($unit->faculty as $f) {
+            echo '<div>';
             echo '<div>' . $f->LastName . ', ' . $f->FirstName . '</div>';
+            echo '</div>';
         }
     } 
     ?>
